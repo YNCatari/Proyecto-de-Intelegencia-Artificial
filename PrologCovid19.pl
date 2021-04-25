@@ -17,33 +17,15 @@ Segun la Respuestas dadas tendra su Resultado:')),
 	send(Menu,display,@respl,point(20,130)),
 	send(Menu,open_centered).
 
-enfermedades(colesterol):- colesterol,!.
-enfermedades(diabetes):- diabetes,!.
+
 enfermedades(ebola):-ebola,!.
 enfermedades(gastritis):-gastritis,!.
 enfermedades(neumonia):-neumonia,!.
-enfermedades(parkinson):-parkinson,!.
+
 enfermedades('No estoy entrenado para darte ese diagnostico').
 
 
-colesterol :-
-	tiene_colesterol,
-	pregunta('¿Tiene hinchazon en alguna extremidad?'),
-	pregunta('¿Tiene perdida del equilibrio?'),
-	pregunta('¿Tiene dolor de cabeza?'),
-	pregunta('¿Tiene amarillos los ojos?'),
-	pregunta('¿Tiene adormecimiento en alguna extremidad?'),
-	pregunta('¿Tiene agitacion,en especial al caminar o al realizar actividades leve?'),
-	pregunta('¿Tiene dolor en el pecho?').
 
-diabetes :-
-	tiene_diabetes,
-	pregunta('¿Padece de orina frecuente?'),
-	pregunta('¿Tiene sed constante?'),
-	pregunta('¿Tiene hambre excesiva?'),
-	pregunta('¿Tiene perdida de peso inexplicable?'),
-	pregunta('¿Se siente fatigado?'),
-	pregunta('¿Tiene irritabilidad?').
 
 ebola :-
 	tiene_ebola,
@@ -67,23 +49,16 @@ neumonia :-
 	pregunta('¿Ha tenido tos constate los ultimos dos dias?'),
 	pregunta('¿Presenta dificultad para respirar?').
 
-parkinson :-
-	tiene_parkinson,
-	pregunta('¿Tiene dolores articulares?'),
-	pregunta('¿Ha notado algún cambio perdida de movimiento espontáneo y automático en alguna extremidad?'),
-	pregunta('¿Ha presentado rigidez severa en alguna region muscular?'),
-	pregunta('¿Sufre de depresión o ha utilizado farmacos para tratar una enfermedad semejante?'),
-	pregunta('¿Presenta algun trastorno en el sueño?').
+
 
 
 %desconocido :- se_desconoce_enfermedad.
 
-tiene_colesterol:-	pregunta('¿Tiene vision borrosa?').
-tiene_diabetes:-	pregunta('¿Tiene vision borrosa?').
+
 tiene_ebola:-		pregunta('¿Tiene fiebre?').
-tiene_gastritits:-	pregunta('¿Tiene dolor abdominal?').
-tiene_neumonia:-	pregunta('¿Tiene fiebre?').
-tiene_parkinson:-	pregunta('¿Presenta temblor en alguna de las extremidades superiores del cuerpo?').
+tiene_gastritits:-	pregunta('¿Tiene dificultad de Respiratoria?').
+tiene_neumonia:-	pregunta('¿Tiene fiebre Dolor Estomacal ?').
+
 
 :-dynamic si/1,no/1.
 
