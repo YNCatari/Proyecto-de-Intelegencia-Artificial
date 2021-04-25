@@ -1,16 +1,15 @@
-
-
 :- use_module(library(pce)).
 :- use_module(library(pce_style_item)).
 
 main:-
 	new(Menu, dialog('Universidad Privada de Tacna', size(500,500))),
 	new(L, label(nombre, 'Escuela Profesional de Ingenieria de Sistemas')),
-	new(@texto, label(nombre, 'Segun la respuestas dadas tendra su resultado:')),
+	new(@texto, label(nombre, 'Conteste con responsabilidad las preguntas que acontinuacion se le brindara para descartar cualquier caso de COVID-19 que pueda presentar ud. ó algun familiar suyo
+Segun la Respuestas dadas tendra su Resultado:')),
 	new(@respl, label(nombre, '')),
 	new(Salir, button('Salir', and(message(Menu,destroy), message(Menu, free)))),
 	new(@boton, button('Realizar test Covid19', message(@prolog, botones))),
-	send(Menu, append(L)), new(@btncarrera, button('�Diagnostico?')),
+	send(Menu, append(L)), new(@btncarrera, button('¿Diagnostico?')),
 	send(Menu,display,L,point(100,20)),
 	send(Menu,display,@boton,point(130,150)),
 	send(Menu,display,@texto,point(50,100)),
@@ -29,62 +28,62 @@ enfermedades('No estoy entrenado para darte ese diagnostico').
 
 colesterol :-
 	tiene_colesterol,
-	pregunta('�Tiene hinchazon en alguna extremidad?'),
-	pregunta('�Tiene perdida del equilibrio?'),
-	pregunta('�Tiene dolor de cabeza?'),
-	pregunta('�Tiene amarillos los ojos?'),
-	pregunta('�Tiene adormecimiento en alguna extremidad?'),
-	pregunta('�Tiene agitacion,en especial al caminar o al realizar actividades leve?'),
-	pregunta('�Tiene dolor en el pecho?').
+	pregunta('¿Tiene hinchazon en alguna extremidad?'),
+	pregunta('¿Tiene perdida del equilibrio?'),
+	pregunta('¿Tiene dolor de cabeza?'),
+	pregunta('¿Tiene amarillos los ojos?'),
+	pregunta('¿Tiene adormecimiento en alguna extremidad?'),
+	pregunta('¿Tiene agitacion,en especial al caminar o al realizar actividades leve?'),
+	pregunta('¿Tiene dolor en el pecho?').
 
 diabetes :-
 	tiene_diabetes,
-	pregunta('�Padece de orina frecuente?'),
-	pregunta('�Tiene sed constante?'),
-	pregunta('�Tiene hambre excesiva?'),
-	pregunta('�Tiene perdida de peso inexplicable?'),
-	pregunta('�Se siente fatigado?'),
-	pregunta('�Tiene irritabilidad?').
+	pregunta('¿Padece de orina frecuente?'),
+	pregunta('¿Tiene sed constante?'),
+	pregunta('¿Tiene hambre excesiva?'),
+	pregunta('¿Tiene perdida de peso inexplicable?'),
+	pregunta('¿Se siente fatigado?'),
+	pregunta('¿Tiene irritabilidad?').
 
 ebola :-
 	tiene_ebola,
-	pregunta('�Presenta dolores musculares?'),
-	pregunta('�Tiene v�mito y diarrea?'),
-	pregunta('�Presenta erupciones cutaneas?'),
-	pregunta('�Siente debilidad intensa?'),
-	pregunta('�Tiene dolor de garganta?').
+	pregunta('¿Presenta dolores musculares?'),
+	pregunta('¿Tiene vómito y diarrea?'),
+	pregunta('¿Presenta erupciones cutaneas?'),
+	pregunta('¿Siente debilidad intensa?'),
+	pregunta('¿Tiene dolor de garganta?').
 
 gastritis :-
 	tiene_gastritits,
-	pregunta('�Tiene acidez estomacal?'),
-	pregunta('�Presenta aerofagia?'),
-	pregunta('�Tiene ausencia de hambre que en ocasiones puede producir perdida de peso?'),
-	pregunta('�Presenta heces de color negro o con sangrado?'),
-	pregunta('�Tiene n�useas?').
+	pregunta('¿Tiene acidez estomacal?'),
+	pregunta('¿Presenta aerofagia?'),
+	pregunta('¿Tiene ausencia de hambre que en ocasiones puede producir perdida de peso?'),
+	pregunta('¿Presenta heces de color negro o con sangrado?'),
+	pregunta('¿Tiene náuseas?').
 
 neumonia :-
 	tiene_neumonia,
-	pregunta('�Tiene dolores articulares?'),
-	pregunta('�Ha tenido tos constate los ultimos dos dias?'),
-	pregunta('�Presenta dificultad para respirar?').
+	pregunta('¿Tiene dolores articulares?'),
+	pregunta('¿Ha tenido tos constate los ultimos dos dias?'),
+	pregunta('¿Presenta dificultad para respirar?').
 
 parkinson :-
 	tiene_parkinson,
-	pregunta('�Tiene dolores articulares?'),
-	pregunta('�Ha notado alg�n cambio perdida de movimiento espont�neo y autom�tico en alguna extremidad?'),
-	pregunta('�Ha presentado rigidez severa en alguna region muscular?'),
-	pregunta('�Sufre de depresi�n o ha utilizado farmacos para tratar una enfermedad semejante?'),
-	pregunta('�Presenta algun trastorno en el sue�o?').
+	pregunta('¿Tiene dolores articulares?'),
+	pregunta('¿Ha notado algún cambio perdida de movimiento espontáneo y automático en alguna extremidad?'),
+	pregunta('¿Ha presentado rigidez severa en alguna region muscular?'),
+	pregunta('¿Sufre de depresión o ha utilizado farmacos para tratar una enfermedad semejante?'),
+	pregunta('¿Presenta algun trastorno en el sueño?').
 
 
 %desconocido :- se_desconoce_enfermedad.
 
-tiene_colesterol:-	pregunta('�Tiene vision borrosa?').
-tiene_diabetes:-	pregunta('�Tiene vision borrosa?').
-tiene_ebola:-		pregunta('�Tiene fiebre?').
-tiene_gastritits:-	pregunta('�Tiene dolor abdominal?').
-tiene_neumonia:-	pregunta('�Tiene fiebre?').
-tiene_parkinson:-	pregunta('�Presenta temblor en alguna de las extremidades superiores del cuerpo?').
+tiene_colesterol:-	pregunta('¿Tiene vision borrosa?').
+tiene_diabetes:-	pregunta('¿Tiene vision borrosa?').
+tiene_ebola:-		pregunta('¿Tiene fiebre?').
+tiene_gastritits:-	pregunta('¿Tiene dolor abdominal?').
+tiene_neumonia:-	pregunta('¿Tiene fiebre?').
+tiene_parkinson:-	pregunta('¿Presenta temblor en alguna de las extremidades superiores del cuerpo?').
 
 :-dynamic si/1,no/1.
 
@@ -121,7 +120,7 @@ botones :-lim,
 	enfermedades(Enter),
 	send(@texto, selection('De acuerdo con sus respuestas,usted padece de:')),
 	send(@respl, selection(Enter)),
-	new(@boton, button('Iniciar su evaluaci�n', message(@prolog, botones))),
+	new(@boton, button('Iniciar su evaluación', message(@prolog, botones))),
 	send(Menu,display,@boton,point(40,50)),
 	send(Menu,display,@btncarrera,point(20,50)),
 	limpiar.
@@ -133,7 +132,4 @@ limpiar2:-
 	send(@respl,free),
 *	%send(@btncarrera,free),
 	send(@boton,free).
-
-
-
 
