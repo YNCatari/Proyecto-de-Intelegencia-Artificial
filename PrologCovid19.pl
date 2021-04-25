@@ -2,13 +2,13 @@
 :- use_module(library(pce_style_item)).
 
 main:-
-	new(Menu, dialog('Universidad Privada de Tacna', size(500,500))),
-	new(L, label(nombre, 'Escuela Profesional de Ingenieria de Sistemas')),
-	new(@texto, label(nombre, 'Conteste con responsabilidad las preguntas que acontinuacion se le brindara para descartar cualquier caso de COVID-19 que pueda presentar ud. ó algun familiar suyo
-Segun la Respuestas dadas tendra su Resultado:')),
+	new(Menu, dialog('TEST COVID-19 UPT- YNCC,PYVC', size(500,500))),
+	new(L, label(nombre, 'Escuela Profesional Ingenieria de Sistemas')),
+	new(@texto, label(nombre, 'Conteste con responsabilidad las preguntas Segun
+	 la Respuestas dadas Ud tendra sus Resultado:')),
 	new(@respl, label(nombre, '')),
 	new(Salir, button('Salir', and(message(Menu,destroy), message(Menu, free)))),
-	new(@boton, button('Realizar test Covid19', message(@prolog, botones))),
+	new(@boton, button('Realizar test Covid-19', message(@prolog, botones))),
 	send(Menu, append(L)), new(@btncarrera, button('¿Diagnostico?')),
 	send(Menu,display,L,point(100,20)),
 	send(Menu,display,@boton,point(130,150)),
@@ -18,52 +18,42 @@ Segun la Respuestas dadas tendra su Resultado:')),
 	send(Menu,open_centered).
 
 
-enfermedades(ebola):-ebola,!.
-enfermedades(gastritis):-gastritis,!.
-enfermedades(neumonia):-neumonia,!.
-
-enfermedades('No estoy entrenado para darte ese diagnostico').
+enfermedades(gripe):-gripe,!.
+enfermedades(covid19):-covid19,!.
 
 
+enfermedades('No estoy entrenado para darte Resultados ').
 
 
-ebola :-
-	tiene_ebola,
-	pregunta('¿Presenta dolores musculares?'),
-	pregunta('¿Tiene vómito y diarrea?'),
-	pregunta('¿Presenta erupciones cutaneas?'),
-	pregunta('¿Siente debilidad intensa?'),
-	pregunta('¿Tiene dolor de garganta?').
 
-gastritis :-
-	tiene_gastritits,
-	pregunta('¿Tiene acidez estomacal?'),
-	pregunta('¿Presenta aerofagia?'),
-	pregunta('¿Tiene ausencia de hambre que en ocasiones puede producir perdida de peso?'),
-	pregunta('¿Presenta heces de color negro o con sangrado?'),
-	pregunta('¿Tiene náuseas?').
 
-neumonia :-
-	tiene_neumonia,
-	pregunta('¿Tiene dolores articulares?'),
-	pregunta('¿Ha tenido tos constate los ultimos dos dias?'),
-	pregunta('¿Presenta dificultad para respirar?').
+gripe :-
+	tiene_gripe,
+	pregunta('¿Tiene Cansancio?'),
+	pregunta('¿Tiene Tos?'),
+	pregunta('¿Dolor de Garganta?'),
+	pregunta('¿Congestion Nasal?').
+	
 
+covid19 :-
+	tiene_covid19,
+	pregunta('¿Tiene Obesidad,Diabetes,hipertencion?'),
+	pregunta('¿Ud Tiene mas de 55 Years?'),
+	pregunta('¿Ha tenido contacto con personas sospechosas o confirmadas de COVID-19?'),
+	pregunta('¿Ha estado fuera del pais, la region o la ciudad en los ultimos 14 dias?').
 
 
 
 %desconocido :- se_desconoce_enfermedad.
+tiene_gripe:-		pregunta('¿Tienes Fiebre?').
+tiene_covid19:-	pregunta('¿Tienes Dificultad Respiratoria?').
 
-
-tiene_ebola:-		pregunta('¿Tiene fiebre?').
-tiene_gastritits:-	pregunta('¿Tiene dificultad de Respiratoria?').
-tiene_neumonia:-	pregunta('¿Tiene fiebre Dolor Estomacal ?').
 
 
 :-dynamic si/1,no/1.
 
 
-preguntar(Problema):-new(Di, dialog('Examen Medico')),
+preguntar(Problema):-new(Di, dialog('Test Covid-19 ')),
 	new(L2, label(texto,'Responde las siguientes preguntas')),
 	new(La, label(prob,Problema)),
 
@@ -95,7 +85,7 @@ botones :-lim,
 	enfermedades(Enter),
 	send(@texto, selection('De acuerdo con sus respuestas,usted padece de:')),
 	send(@respl, selection(Enter)),
-	new(@boton, button('Iniciar su evaluación', message(@prolog, botones))),
+	new(@boton, button('Iniciar su 	Test Covid-19', message(@prolog, botones))),
 	send(Menu,display,@boton,point(40,50)),
 	send(Menu,display,@btncarrera,point(20,50)),
 	limpiar.
